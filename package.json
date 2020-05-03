@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd Api && npm install -g typescript && npm run start",
+    "start": "cd Api && npm install -g && npm i && typescript && npm run start",
     "heroku-postbuild": "cd front && npm i && npm run build"
   },
   "repository": {
