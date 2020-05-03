@@ -42,18 +42,15 @@ class  Socket {
                 });
 
                 this.socket.on('new user', (data: any)=>{
-                    console.log("new user");
                     this.socket.emit('newUserStart', {to:data.socketId, sender:this.socketId});
                     this.init(true, data.socketId);
                 });
 
                 this.socket.on('newUserStart', (data : any)=>{
-                    console.log('newUserStart');
                     this.init(false, data.sender);
                 });
 
                 this.socket.on('ice candidates', async (data: any)=>{
-                    console.log('ice cantidate');
                     if(data.candidate)
                         await this.pc.get(data.sender)?.addIceCandidate(new RTCIceCandidate(data.candidate));
                 });
@@ -61,7 +58,6 @@ class  Socket {
                 this.socket.on('sdp', async (data : any)=>{
                     console.log('sdp');
                     if(data.description && data.description.type === 'offer'){
-                        console.log("je suis dans offer");
                         if (data.description)
                             await this.pc.get(data.sender)?.setRemoteDescription(new RTCSessionDescription(data.description));
 
