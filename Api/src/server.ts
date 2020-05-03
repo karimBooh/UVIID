@@ -30,7 +30,7 @@ class Server {
         //  require('./routes/')(this.router);
 
         this.router.get('*', (req, res) => {
-            res.sendFile(path.join(__dirname + '/client/build/index.html'));
+            res.sendFile(path.join(__dirname + '/front/build/index.html'));
         });
 
         this.app.use(this.router);
