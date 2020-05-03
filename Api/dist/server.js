@@ -14,6 +14,7 @@ var express_1 = __importDefault(require("express"));
 var bodyParser = __importStar(require("body-parser"));
 var http = __importStar(require("http"));
 var socket = __importStar(require("./socket"));
+var path_1 = __importDefault(require("path"));
 var Server = /** @class */ (function () {
     function Server() {
         var _this = this;
@@ -28,6 +29,9 @@ var Server = /** @class */ (function () {
                 next();
             });
             //  require('./routes/')(this.router);
+            _this.router.get('*', function (req, res) {
+                res.sendFile(path_1.default.join(__dirname + '..//front/build/index.html'));
+            });
             _this.app.use(_this.router);
             var server = _this.http.listen(PORT, function () {
                 socket.createInstance(server);
