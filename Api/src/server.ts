@@ -27,6 +27,10 @@ class Server {
 
         //  require('./routes/')(this.router);
 
+        this.router.get('/', (req, res) => {
+            res.sendStatus(200);
+        });
+
         this.app.use(this.router);
 
         const server = this.http.listen(PORT, () => {
