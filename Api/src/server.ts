@@ -18,6 +18,8 @@ class Server {
     public start = () => {
         const PORT = process.env.PORT || 8080;
 
+        this.app.use(express.static(path.join(__dirname, '../../../front/build/index.html')));
+
         this.app.use(bodyParser.urlencoded({ limit: '50mb', extended: false }));
         this.app.use(bodyParser.json({ limit: '50mb' }));
         this.app.use((req, res, next) => {
