@@ -1,0 +1,19 @@
+{
+  "name": "uviid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "heroku-postbuild": "cd Api && npm i && npm run dev && cd ../front && npm i && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karimBooh/UVIID.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karimBooh/UVIID/issues"
+  },
+  "homepage": "https://github.com/karimBooh/UVIID#readme"
+}
