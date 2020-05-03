@@ -24,7 +24,8 @@ class  Socket {
         if (this.socket && this.socket.connected) {
             return ;
         }
-        this.socket = io('http://localhost:8080');
+        const port = process.env.PORT || '8080';
+        this.socket = io('http://localhost:' + port);
         return new Promise(resolve => {
             this.socket.on('connect', () => {
                 this.socketId = this.socket.io.engine.id;
