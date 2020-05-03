@@ -16,7 +16,7 @@ class Server {
     }
 
     public start = () => {
-        const PORT = process.env.PORT || 8080;
+        const PORT = process.env.NODE_ENV === 'production' ? '80' : '8080';
 
         this.app.use(express.static(path.join(__dirname, '../../front/build')));
 
