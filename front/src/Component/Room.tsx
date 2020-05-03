@@ -1,12 +1,9 @@
 import * as React from "react";
-import {Button, Col, Row} from "antd";
-import {CameraFilled, AudioFilled} from '@ant-design/icons';
+import {Button} from "antd";
 import socket from './../Socket'
 import {RouteComponentProps} from "react-router";
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {IHash} from "../IHash";
-import store from "../redux/store";
 import {AudioOutlined, PhoneOutlined} from "@ant-design/icons/lib";
 
 type param = {

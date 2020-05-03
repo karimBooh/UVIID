@@ -135,7 +135,7 @@ class  Socket {
         this.pc.get(partnerName)!.ontrack = (e)=>{
             let str = e.streams[0];
             if(document.getElementById(partnerName)){
-                if (partnerName != this.socketId)
+                if (partnerName !== this.socketId)
                 // @ts-ignore
                     document.getElementById(partnerName).srcObject = str;
             }
