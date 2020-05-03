@@ -31,8 +31,7 @@ class Server {
 
         //  require('./routes/')(this.router);
 
-        this.router.get('/', (req, res) => {
-            console.log()
+        this.router.get('/*', (req, res) => {
             res.sendFile(path.join(__dirname, '../../front/build', 'index.html'));
         });
 
