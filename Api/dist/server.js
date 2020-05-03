@@ -20,6 +20,7 @@ var Server = /** @class */ (function () {
         var _this = this;
         this.start = function () {
             var PORT = process.env.PORT || 8080;
+            _this.app.use(express_1.default.static(path_1.default.join(__dirname, '../../front/build')));
             _this.app.use(bodyParser.urlencoded({ limit: '50mb', extended: false }));
             _this.app.use(bodyParser.json({ limit: '50mb' }));
             _this.app.use(function (req, res, next) {
@@ -29,8 +30,9 @@ var Server = /** @class */ (function () {
                 next();
             });
             //  require('./routes/')(this.router);
-            _this.router.get('*', function (req, res) {
-                res.sendFile(path_1.default.join(__dirname + '..//front/build/index.html'));
+            _this.router.get('/', function (req, res) {
+                console.log();
+                res.sendFile(path_1.default.join(__dirname, '../../front/build', 'index.html'));
             });
             _this.app.use(_this.router);
             var server = _this.http.listen(PORT, function () {
