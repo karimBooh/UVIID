@@ -2,6 +2,8 @@ import express from 'express';
 import * as bodyParser from 'body-parser';
 import * as http from 'http';
 import * as socket from './socket';
+import path from 'path';
+
 class Server {
     private app: express.Application;
     private http: any;
@@ -27,8 +29,8 @@ class Server {
 
         //  require('./routes/')(this.router);
 
-        this.router.get('/', (req, res) => {
-            res.sendStatus(200);
+        this.router.get('*', (req, res) => {
+            res.sendFile(path.join(__dirname + '/client/build/index.html'));
         });
 
         this.app.use(this.router);
