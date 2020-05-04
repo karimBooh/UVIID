@@ -30,8 +30,7 @@ var Server = /** @class */ (function () {
                 next();
             });
             //  require('./routes/')(this.router);
-            _this.router.get('/', function (req, res) {
-                console.log();
+            _this.router.get('/*', function (req, res) {
                 res.sendFile(path_1.default.join(__dirname, '../../front/build', 'index.html'));
             });
             _this.app.use(_this.router);

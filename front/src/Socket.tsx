@@ -19,12 +19,13 @@ class  Socket {
     getSocketId() : string {
         return this.socketId;
     }
-
     connect(room : string) {
         if (this.socket && this.socket.connected) {
             return ;
         }
-        const port = (process.env.NODE_ENV === "production") ? '49942' : '8080';
+        // eslint-disable-next-line no-restricted-globals
+        console.log(process.env);
+        const port = (process.env.NODE_ENV === "production") ? '8080' : '8080';
         this.socket = io('http://localhost:' + port);
         return new Promise(resolve => {
             this.socket.on('connect', () => {
