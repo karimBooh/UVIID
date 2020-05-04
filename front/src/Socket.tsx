@@ -25,8 +25,8 @@ class  Socket {
         }
         // eslint-disable-next-line no-restricted-globals
         console.log(process.env);
-        const port = (process.env.NODE_ENV === "production") ? '5000' : '8080';
-        this.socket = io('http://localhost:' + port);
+        const port = (process.env.NODE_ENV === "production") ? 'https://u-vid.herokuapp.com/' : 'http://localhost:8080';
+        this.socket = io(port);
         return new Promise(resolve => {
             this.socket.on('connect', () => {
                 this.socketId = this.socket.io.engine.id;
