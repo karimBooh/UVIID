@@ -16,7 +16,7 @@ class Server {
     }
 
     public start = () => {
-        const PORT = 5000;
+        const PORT = process.env.PORT || 8080;
 
         this.app.use(express.static(path.join(__dirname, '../../front/build')));
 

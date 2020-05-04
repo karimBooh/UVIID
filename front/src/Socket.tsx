@@ -24,8 +24,7 @@ class  Socket {
         if (this.socket && this.socket.connected) {
             return ;
         }
-        console.log(process.env);
-        const port = '5000';
+        const port = (process.env.NODE_ENV === "production") ? '4994é' : '8080';
         this.socket = io('http://localhost:' + port);
         return new Promise(resolve => {
             this.socket.on('connect', () => {
